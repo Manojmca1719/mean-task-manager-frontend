@@ -1,0 +1,24 @@
+.popup-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .new-task-container {
+        width: 650px;
+        height: 300px;
+        // border:1px solid red;
+        padding: 35px;
+        border-radius: 5px;
+
+        .new-task-title {
+            font-size: 3rem;
+            font-family: "Cabin", sans-serif;
+        }
+
+        .btn-container {
+            display: flex;
+            justify-content: end;
+            margin-top:10px;
+        }
+    }
+}

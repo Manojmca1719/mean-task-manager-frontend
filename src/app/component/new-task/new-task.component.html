@@ -1,0 +1,14 @@
+<div class="h-100 popup-container h-100">
+    <div class="new-task-container shadow">
+        <div class="new-task-title">
+            {{isEditForm ? 'Edit' : 'New'}} Task
+        </div>
+        <form [formGroup]="taskForm" (ngSubmit)="taskFormSubmit()">
+            <input type="text" name="taskTitle" id="taskTitle" class="form-control" [placeholder]="isEditForm ? '' : 'Enter Task'" formControlName="taskTitle">
+            <div class="button-group btn-container mt-5">
+                <button class="btn btn-danger me-2" [routerLink]="['/']">Cancel</button>
+                <button type="submit" class="btn btn-primary" [disabled]="taskForm.invalid">{{isEditForm ? 'Update' : 'Add'}}</button>
+            </div>
+        </form>
+    </div>
+</div>

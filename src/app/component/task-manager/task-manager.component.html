@@ -1,0 +1,61 @@
+<div class="task-container">
+    <div class="task-manager-container">
+        <div class="left-container task-title h-100">
+            <div class="task-title">Tasks</div>
+            <div class="task-title-items-container">
+                @for(task of tasks;track task._id;) {
+                <div class="d-flex task-title-item justify-content-between"
+                    [class.is-active]="isListLoadedID == task._id" (click)="loadAllLists(task)">
+
+                    {{task.taskTitle}}
+
+                    <!-- <div>
+                        <small class="mx-2">
+                            <a class="" (click)="editTask(task)">E</a>
+                        </small>
+                        <small class="mx-2">
+                            <a class="" (click)="deleteTask(task._id)">D</a>
+                        </small>
+                    </div> -->
+                </div>
+                }
+            </div>
+            <div class="task-title-button d-block mx-auto">
+                <button type="button" class="btn btn-primary" [routerLink]="['/new-task']">Add New Task</button>
+            </div>
+        </div>
+        <div class="right-container task-list h-100">
+            <div class="task-list-title">Tasks List</div>
+            @if(isListLoaded) {
+            <div class="task-list-items-container">
+                @if(lists && lists.length>0) {
+                    @for(list of lists;track list._id) {
+                        <div class="task-list-item d-flex justify-content-between">
+                            <div>
+                                {{list.listTitle}}
+                            </div>
+                            <div class="task-list-actions-item">
+                                <span class="action-edit" (click)="editList(list)">
+                                    Edit
+                                </span>
+                                <span class="action-delete" (click)="deleteList(list._id)">
+                                    Delete
+                                </span>
+                            </div>
+                        </div>
+                    }
+                } @else {
+                <div>No list available in the Selected task</div>
+                }
+            </div>
+            }@else {
+            <div>No Task is Selected</div>
+            }
+
+            <div class="task-list-button">
+                <button type="button" [disabled]="!isListLoaded" class="btn btn-primary" [routerLink]="['/new-todo/',isListLoadedID]"
+                    routerLinkActive="router-link-active">+</button>
+            </div>
+        </div>
+    </div>
+</div>

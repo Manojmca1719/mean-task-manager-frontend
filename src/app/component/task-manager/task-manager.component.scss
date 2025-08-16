@@ -1,0 +1,125 @@
+.task-container {
+    height: 100%;
+
+    .task-manager-container {
+        display: grid;
+        grid-template-columns: 300px auto;
+        height: 100%;
+        border:1px solid green;
+
+        .left-container {
+            border-right: 1px solid red;
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            overflow-y: scroll;
+
+            .task-title {
+                font-size: 3rem;
+                font-weight: 500;
+                font-family: "Cabin", sans-serif;
+            }
+
+            .task-title-items-container {
+                position: relative;
+                display: flex;
+                flex-direction: column;
+                flex-grow: 1;
+                padding: 20px 0;
+
+                .task-title-item {
+                    font-size: 1rem;
+                    font-weight: 400;
+                    padding: 15px 10px;
+                    margin-bottom: 5px;
+                    font-family: "Edu SA Hand", cursive;
+                    text-decoration: none;
+                    color: black;
+
+                    &.is-active {
+                        font-weight: 600;
+                        background-color: green;
+                        border-radius: 5px;
+
+                        &:hover {
+                            background-color: green;
+                            border-radius: 5px;
+                        }
+                    }
+
+                    &:hover {
+                        background-color: rgb(209, 207, 207);
+                        border-radius: 5px;
+                    }
+
+                    small {
+                        font-size: .5rem;
+                        background-color: aliceblue;
+                        width: 25px;
+                        height: 25px;
+                    }
+                }
+            }
+        }
+
+        .right-container {
+            padding: 30px;
+
+            .task-list-title {
+                font-size: 3rem;
+                font-weight: 500;
+                font-family: "Cabin", sans-serif;
+            }
+
+            .task-list-items-container {
+                padding: 20px 0;
+                height: calc(100% - 100px);
+                border: 1px solid brown;
+                overflow-y: scroll;
+                
+                .task-list-item {
+                    font-size: .8rem;
+                    padding: 15px 10px;
+                    margin-bottom: 5px;
+                    font-family: "Edu SA Hand", cursive;
+                    background-color: rgb(209, 207, 207);
+                    border-radius: 5px;
+
+                    &.is-completed {
+                        text-decoration: line-through;
+                        background-color: rgb(179, 179, 179);
+                    }
+
+                    &:hover {
+                        background-color: rgb(179, 179, 179);
+                        border-radius: 5px;
+                    }
+
+                    .task-list-actions-item {
+                        font-size: .7rem;
+
+                        .action-edit {
+                            color: blue;
+                            margin-right: 20px;
+                        }
+                        .action-delete {
+                            color: red;
+                        }
+
+                        &:hover {
+                            cursor: pointer;
+                        }
+                    }
+                }
+            }
+
+            .task-list-button {
+                width: 50px;
+                height: 50px;
+                position: absolute;
+                bottom: 10px;
+                right: 10px;
+            }
+        }
+    }
+}
