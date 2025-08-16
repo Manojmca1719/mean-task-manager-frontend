@@ -9,7 +9,7 @@ export class WerRequestService {
   readonly ROOT_URI;
 
   constructor(private _http:HttpClient) {
-    this.ROOT_URI = "http://localhost:5000"
+    this.ROOT_URI = "https://mean-task-manager-backend.onrender.com"
    }
 
    get(uri:string) {
